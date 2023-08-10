@@ -1,0 +1,91 @@
+SKALIERUNG = Statistik / MW (für Saison jeweils)
+
+
+
+TARGET
+FTR = Full time result, 3 level factor: W,L,D
+Goals = mehr oder weniger als 2,5 goals im Spiel: 2 classes/levels: many, few
+
+
+FEATURES:
+FTHG = Full Time Home goal ; int - Tore geschossen im Spiel Home Team => KEIN FEATURE
+FTAG = Full Time Away Goal ; int - Tore geschossen im Spiel Away Team => KEIN FEATURE
+
+HTGS = Home Team goals scored: accumulated über Saison  ; int jeweils berechnet für VOR SPIELTAG
+ATGS = Away Team goals scored: accumulated über Saison ; int jeweils berechnet für VOR SPIELTAG
+
+HTGC = Home Team goals conceded: accumulated über Saison ; int - jeweils berechnet für VOR SPIELTAG
+ATGC = Away Team goals conceded: accumulated über Saison ; int - jeweils berechnet für VOR SPIELTAG
+
+HTP = Punkte Home Team VOR dem Spiel kumuliert: Skaliert ; num (Punkte VOR dem Spiel / Matchweek dieses Spieltags)
+ATP = Punkte Away Team VOR dem Spiel: Skalert kumuliert; num (Punkte VOR dem Spiel / Matchweek dieses Spieltags)
+
+HM1 = Home Team Result ein Spieltag zuvor: D,W,L - M für NA
+HM2 = Home Team Result zwei Spieltage zuvor: D,W,L - M für NA
+HM3 = ...
+HM4 = ...
+HM5 = ...
+AM1 = Away Team Result ein Spieltag zuvor: D,W,L - M für NA
+AM2 = Away Team Result zwei Spieltage zuvor: D,W,L - M für NA
+AM3 = ...
+AM4 = ...
+AM5 = ...
+
+MW = MatchWeek (in Saison) ; kein FEATURE
+
+HTFormPtsStr = Result letzten 5 Spiele Hometeam: Factor w/ 360 levels "DDDDD","DDDDL", ...
+ATFormPtsStr = Result letzten 5 Spiele Away Team: Factor w/ 360 levels "DDDDD","DDDDL", ...
+
+HTFormPts = Punkte aus den letzten 5 Spielen VOR Spiel Home TEAM (akkumuliert); int
+ATFormPts = Punkte aus den letzten 5 Spielen VOR Spiel Home TEAM (akkumuliert); int
+
+
+HTWinStreak3 =  Home Team letzten 3 Spiele gewonnen? 1 = yes, 2 = 0 DUMMY! ; int
+HTWinStreak5 =  Home Team letzten 5 Spiele gewonnen? 1 = yes, 2 = 0 DUMMY! ; int
+HTLossStreak3 =  Home Team letzten 3 Spiele verloren? 1 = yes, 2 = 0 DUMMY! ; int
+HTLossStreak5 =  Home Team letzten 5 Spiele verloren? 1 = yes, 2 = 0 DUMMY! ; int
+
+ATWinStreak3 = Away Team letzten 3 Spiele gewonnen? 1 = yes, 2 = 0 DUMMY! ; int
+ATWinStreak5 = Away Team letzten 5 Spiele gewonnen? 1 = yes, 2 = 0 DUMMY! ; int
+ATLossStreak3 = Away Team letzten 3 Spiele verloren? 1 = yes, 2 = 0 DUMMY! ; int
+ATLossStreak5 = Away Team letzten 3 Spiele verloren? 1 = yes, 2 = 0 DUMMY! ; int
+
+
+HTGD = Home Team Tordifferenz VOR dem Spiel: SKALIERT - Tordiffernz / MW ; num
+ATGD = Away Team Tordifferenz VOR dem Spiel: SKALIERT - Tordiffernz / MW; num
+
+DiffPts = Differenz zwischen Punkten HomeTeam und AwayTeam - DiffPts = HTP-ATP / MW    ; num  (VOR DEM SPIEL)
+DiffFormPts = Differenz zwischen FORM Punkten HomeTeam und AwayTeam - DiffPts = HTFormPts-ATFormPts / MW    ; num	(VOR DEM SPIEL)	
+
++ In Game
+AGHSF - aggregated Home Team shots fired
+AGASF - aggregated Away Team shots fired
+AGHSC - aggregated Home Team shots conceided
+AGASC - aggregated Away Team shots conceided
+
+AGHSTF - aggregated Home Team shots on Taget fired
+AGASTF - aggregated Away Team shots on Taget fired
+AGHSTC - aggregated Home Team shots on Taget conceided
+AGASTC - aggregated Away Team shots on Taget conceided
+
+AGHF - aggregated Home Team Fouls
+AGAF - aggregated Away Team Fouls
+
+AGHCF - aggregated Home Team corners fired
+AGACF - aggregated Away Team corners fired
+AGHCC - aggregated Home Team corners received
+AGACC - aggregated Away Team corners received
+
+AGHY - aggregated Home Team yellow cards
+AGAY - aggregated Away Team yellow cards
+
+# 6 Differences 
+HTSD - Difference for home team btw. shots fired and conceived
+ATSD - difference for away team of shots fired btw. shots fired and conceived
+
+HTSTD - Difference for home team btw. shots fired on target and conceived
+ATSTD - difference for away team of shots fired on target btw. shots fired and conceived
+
+HTCD - Difference for home team btw. corners fired on target and conceived
+ATCD - Difference for away team btw. corners fired on target and conceived
+
